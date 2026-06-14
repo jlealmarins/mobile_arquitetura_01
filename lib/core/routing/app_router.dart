@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/auth/domain/entities/auth_session.dart';
 import '../../features/auth/presentation/pages/login_page.dart';
 import '../../features/auth/presentation/providers/session_notifier.dart';
+import '../../features/products/presentation/pages/product_details_page.dart';
 import '../../features/products/presentation/pages/products_page.dart';
 
 class AppRoutes {
@@ -12,9 +13,11 @@ class AppRoutes {
 
   static const login = 'login';
   static const products = 'products';
+  static const productDetails = 'product-details';
 
   static const loginPath = '/login';
   static const productsPath = '/products';
+  static const productDetailsPath = '/products/:id';
 }
 
 class _GoRouterRefreshNotifier extends ChangeNotifier {
@@ -54,6 +57,16 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         path: AppRoutes.productsPath,
         name: AppRoutes.products,
         builder: (context, state) => const ProductsPage(),
+        routes: [
+          GoRoute(
+            path: ':id',
+            name: AppRoutes.productDetails,
+            builder: (context, state) {
+              final id = int.parse(state.pathParameters['id']!);
+              return ProductDetailsPage(productId: id);
+            },
+          ),
+        ],
       ),
     ],
   );
