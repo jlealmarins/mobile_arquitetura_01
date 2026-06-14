@@ -1,11 +1,6 @@
 import '../../domain/entities/auth_session.dart';
 import '../../domain/entities/auth_user.dart';
 
-/// Espelha a estrutura do JSON retornado por `POST /auth/login` da DummyJSON.
-///
-/// Vive na camada de infraestrutura e nao deve vazar para domain/application.
-/// A conversao para a entidade [AuthSession] eh feita em [toAuthSession],
-/// isolando o restante do app das particularidades do payload externo.
 class LoginResponseDto {
   const LoginResponseDto({
     required this.id,

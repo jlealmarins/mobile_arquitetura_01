@@ -4,12 +4,6 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../dtos/login_response_dto.dart';
 
-/// Wrapper sobre o `flutter_secure_storage` para persistir a sessao do
-/// usuario autenticado.
-///
-/// Mantemos a serializacao em JSON do [LoginResponseDto] para conservar a
-/// mesma forma do payload original, simplificando reconstrucao da
-/// [AuthSession] na leitura.
 class SecureSessionStorage {
   SecureSessionStorage({FlutterSecureStorage? storage})
       : _storage = storage ?? const FlutterSecureStorage();

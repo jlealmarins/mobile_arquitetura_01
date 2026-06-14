@@ -7,11 +7,6 @@ import 'package:http/http.dart' as http;
 import '../../domain/errors/auth_failure.dart';
 import '../dtos/login_response_dto.dart';
 
-/// Acesso direto a API DummyJSON para autenticacao.
-///
-/// Encapsula a URL, o verbo, os cabecalhos e o parsing JSON, traduzindo
-/// erros de transporte e codigos HTTP para subtipos de [AuthFailure].
-/// Nenhuma outra camada deve conhecer o `package:http`.
 class AuthRemoteDataSource {
   AuthRemoteDataSource({
     http.Client? client,

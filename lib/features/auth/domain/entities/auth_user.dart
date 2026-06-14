@@ -1,8 +1,3 @@
-/// Entidade de dominio que representa o usuario autenticado.
-///
-/// Vive na camada de dominio: nao depende de nenhum framework, biblioteca
-/// HTTP ou mecanismo de persistencia. Eh construida a partir do DTO da
-/// resposta da DummyJSON na camada de infraestrutura.
 class AuthUser {
   const AuthUser({
     required this.id,
