@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:http/http.dart' as http;
 
+import '../../../../core/network/network_providers.dart';
 import '../../application/usecases/get_current_session_usecase.dart';
 import '../../application/usecases/login_usecase.dart';
 import '../../application/usecases/logout_usecase.dart';
@@ -9,12 +9,6 @@ import '../../domain/repositories/auth_repository.dart';
 import '../../infrastructure/datasources/auth_remote_datasource.dart';
 import '../../infrastructure/repositories/auth_repository_impl.dart';
 import '../../infrastructure/storage/secure_session_storage.dart';
-
-final httpClientProvider = Provider<http.Client>((ref) {
-  final client = http.Client();
-  ref.onDispose(client.close);
-  return client;
-});
 
 final flutterSecureStorageProvider = Provider<FlutterSecureStorage>(
   (ref) => const FlutterSecureStorage(),
